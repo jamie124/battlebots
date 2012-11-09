@@ -24,26 +24,36 @@ scene
     }
     
     
-    node floor
+    node testRoomFloor
     {
         collisionObject = res/battlebots.physics#staticBox
         
-        material = res/battlebots.material#floor
-        tags
-        {
-            dynamic
-        }
+        material = res/battlebots.material#concreteFloor
+
     }
     
-	node barrier
+	node testRoomNorthWall
 	{
 		collisionObject = res/battlebots.physics#staticBox
 
 		material = res/battlebots.material#wall
-		tags
-		{
-			dynamic
-		}
+
+	}
+
+	node testRoomSouthWall
+	{
+		collisionObject = res/battlebots.physics#staticBox
+
+		material = res/battlebots.material#wall
+
+	}
+
+	node testRoomEastWall
+	{
+		collisionObject = res/battlebots.physics#staticBox
+
+		material = res/battlebots.material#wall
+
 	}
 
     physics

@@ -7,82 +7,6 @@
 	},
 	"buffers":
 	[
-		{
-			"file": ".gitignore",
-			"settings":
-			{
-				"buffer_size": 479,
-				"line_ending": "Windows",
-				"name": "# Compiled source #"
-			}
-		},
-		{
-			"file": "res/battlebots.scene",
-			"settings":
-			{
-				"buffer_size": 882,
-				"line_ending": "Windows",
-				"name": "scene"
-			}
-		},
-		{
-			"file": "res/battlebots.material",
-			"settings":
-			{
-				"buffer_size": 3203,
-				"line_ending": "Windows",
-				"name": "material texturedUnlit"
-			}
-		},
-		{
-			"file": "res/battlebots.physics",
-			"settings":
-			{
-				"buffer_size": 481,
-				"line_ending": "Windows",
-				"name": "collisionObject box"
-			}
-		},
-		{
-			"file": "res/encode-scene.bat",
-			"settings":
-			{
-				"buffer_size": 168,
-				"line_ending": "Windows"
-			}
-		},
-		{
-			"file": "src/BattleBots.cpp",
-			"settings":
-			{
-				"buffer_size": 8318,
-				"line_ending": "Windows"
-			}
-		},
-		{
-			"file": "src/BattleBots.h",
-			"settings":
-			{
-				"buffer_size": 1153,
-				"line_ending": "Windows"
-			}
-		},
-		{
-			"file": "/E/Users/James Whitwell/GamePlay/gameplay/res/shaders/textured-unlit.frag",
-			"settings":
-			{
-				"buffer_size": 1185,
-				"line_ending": "Windows"
-			}
-		},
-		{
-			"file": "/E/Users/James Whitwell/GamePlay/gameplay/res/shaders/textured-unlit.vert",
-			"settings":
-			{
-				"buffer_size": 1733,
-				"line_ending": "Windows"
-			}
-		}
 	],
 	"build_system": "",
 	"command_palette":
@@ -108,7 +32,19 @@
 	},
 	"file_history":
 	[
+		"/E/Users/James Whitwell/GamePlay/gameplay-samples/sample03-character/game.config",
+		"/E/Users/James Whitwell/Documents/GitHub/battlebots/.gitignore",
+		"/E/Users/James Whitwell/Documents/GitHub/battlebots/res/battlebots.scene",
+		"/E/Users/James Whitwell/Documents/GitHub/battlebots/res/battlebots.material",
+		"/E/Users/James Whitwell/Documents/GitHub/battlebots/res/battlebots.physics",
 		"/E/Users/James Whitwell/Documents/GitHub/battlebots/res/encode-scene.bat",
+		"/E/Users/James Whitwell/Documents/GitHub/battlebots/src/BattleBots.cpp",
+		"/E/Users/James Whitwell/Documents/GitHub/battlebots/src/BattleBots.h",
+		"/E/Users/James Whitwell/GamePlay/gameplay/res/shaders/textured-unlit.frag",
+		"/E/Users/James Whitwell/GamePlay/gameplay/res/shaders/textured-unlit.vert",
+		"/E/Users/James Whitwell/GamePlay/gameplay/res/shaders/lib/attributes.vert",
+		"/E/Users/James Whitwell/GamePlay/gameplay/res/shaders/lib/attributes-skinning.vert",
+		"/E/Users/James Whitwell/GamePlay/gameplay/res/shaders/textured.vert",
 		"/E/Users/James Whitwell/Documents/GitHub/battlebots/battle_bots.sublime-workspace",
 		"/E/Users/James Whitwell/Documents/Visual Studio 2010/Projects/Battle Bots/res/game.scene",
 		"/E/Users/James Whitwell/workspace/star-assault-android/assets/data/packer/level packfile",
@@ -132,7 +68,7 @@
 	],
 	"find":
 	{
-		"height": 0.0
+		"height": 34.0
 	},
 	"find_in_files":
 	{
@@ -146,6 +82,7 @@
 		"case_sensitive": false,
 		"find_history":
 		[
+			"u_am",
 			"1"
 		],
 		"highlight": true,
@@ -164,261 +101,8 @@
 	"groups":
 	[
 		{
-			"selected": 8,
 			"sheets":
 			[
-				{
-					"buffer": 0,
-					"file": ".gitignore",
-					"settings":
-					{
-						"buffer_size": 479,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								163,
-								163
-							]
-						],
-						"settings":
-						{
-							"auto_name": "# Compiled source #",
-							"syntax": "Packages/Text/Plain text.tmLanguage"
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				},
-				{
-					"buffer": 1,
-					"file": "res/battlebots.scene",
-					"settings":
-					{
-						"buffer_size": 882,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								0,
-								0
-							]
-						],
-						"settings":
-						{
-							"auto_name": "scene",
-							"syntax": "Packages/Text/Plain text.tmLanguage",
-							"tab_size": 4,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				},
-				{
-					"buffer": 2,
-					"file": "res/battlebots.material",
-					"settings":
-					{
-						"buffer_size": 3203,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								0,
-								0
-							]
-						],
-						"settings":
-						{
-							"auto_name": "material texturedUnlit",
-							"syntax": "Packages/Text/Plain text.tmLanguage",
-							"tab_size": 4,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 1338.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				},
-				{
-					"buffer": 3,
-					"file": "res/battlebots.physics",
-					"settings":
-					{
-						"buffer_size": 481,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								475,
-								475
-							]
-						],
-						"settings":
-						{
-							"auto_name": "collisionObject box",
-							"syntax": "Packages/Text/Plain text.tmLanguage",
-							"tab_size": 4,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				},
-				{
-					"buffer": 4,
-					"file": "res/encode-scene.bat",
-					"settings":
-					{
-						"buffer_size": 168,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								167,
-								167
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/Batch File/Batch File.tmLanguage"
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				},
-				{
-					"buffer": 5,
-					"file": "src/BattleBots.cpp",
-					"settings":
-					{
-						"buffer_size": 8318,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								1299,
-								1299
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/C++/C++.tmLanguage",
-							"tab_size": 4,
-							"translate_tabs_to_spaces": false
-						},
-						"translation.x": 0.0,
-						"translation.y": 457.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				},
-				{
-					"buffer": 6,
-					"file": "src/BattleBots.h",
-					"settings":
-					{
-						"buffer_size": 1153,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								1071,
-								1071
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/C++/C++.tmLanguage",
-							"tab_size": 4,
-							"translate_tabs_to_spaces": false
-						},
-						"translation.x": 0.0,
-						"translation.y": 615.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				},
-				{
-					"buffer": 7,
-					"file": "/E/Users/James Whitwell/GamePlay/gameplay/res/shaders/textured-unlit.frag",
-					"settings":
-					{
-						"buffer_size": 1185,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								0,
-								0
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/Text/Plain text.tmLanguage",
-							"tab_size": 4,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				},
-				{
-					"buffer": 8,
-					"file": "/E/Users/James Whitwell/GamePlay/gameplay/res/shaders/textured-unlit.vert",
-					"settings":
-					{
-						"buffer_size": 1733,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								0,
-								0
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/Text/Plain text.tmLanguage",
-							"tab_size": 4,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				}
 			]
 		}
 	],

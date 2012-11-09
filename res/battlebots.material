@@ -75,7 +75,8 @@ material wall : texturedUnlit
     }
 }
 
-material floor : texturedUnlit
+
+material concreteFloor : texturedUnlit
 {
     technique
     {
@@ -83,7 +84,7 @@ material floor : texturedUnlit
         {
             sampler u_diffuseTexture
             {
-                path = @concrete_bare
+                path = @concrete
             }
         }
     }

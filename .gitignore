@@ -39,5 +39,10 @@ Icon?
 ehthumbs.db
 Thumbs.db
 
+# Misc #
+########
+*.swatch
+*.dds.swatch
+
 Debug/
 ipch/

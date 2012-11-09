@@ -69,7 +69,21 @@ material wall : texturedUnlit
         {
             sampler u_diffuseTexture
             {
-                path = res/brick.dds
+                path = @brick_grey
+            }
+        }
+    }
+}
+
+material floor : texturedUnlit
+{
+    technique
+    {
+        pass
+        {
+            sampler u_diffuseTexture
+            {
+                path = @concrete_bare
             }
         }
     }

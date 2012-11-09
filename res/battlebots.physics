@@ -2,8 +2,8 @@ collisionObject character
 {
     type = CHARACTER
     shape = CAPSULE  
-    radius = 1.0
-    height = 3.8
+    radius = 0.5
+    height = 2.8
     center = 0, 1.0, 0
     centerAbsolute = true
     mass = 20.0

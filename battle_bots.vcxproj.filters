@@ -5,6 +5,9 @@
     </Filter>
     <Filter Include="src">
     </Filter>
+    <Filter Include="res\dds">
+      <UniqueIdentifier>{e55798ce-c7c2-41b4-92ec-9adce8d3a4d9}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <None Include="game.config" />
@@ -39,6 +42,15 @@
     </None>
     <None Include="res\game.gpb">
       <Filter>res</Filter>
+    </None>
+    <None Include="res\concrete_bare.jpg">
+      <Filter>res</Filter>
+    </None>
+    <None Include="res\dds\concrete_bare.dds">
+      <Filter>res\dds</Filter>
+    </None>
+    <None Include="res\dds\brick_grey.dds">
+      <Filter>res\dds</Filter>
     </None>
   </ItemGroup>
   <ItemGroup>

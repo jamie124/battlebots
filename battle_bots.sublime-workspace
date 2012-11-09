@@ -20,7 +20,7 @@
 			"file": "res/battlebots.scene",
 			"settings":
 			{
-				"buffer_size": 1162,
+				"buffer_size": 882,
 				"line_ending": "Windows",
 				"name": "scene"
 			}
@@ -29,7 +29,7 @@
 			"file": "res/battlebots.material",
 			"settings":
 			{
-				"buffer_size": 2985,
+				"buffer_size": 3203,
 				"line_ending": "Windows",
 				"name": "material texturedUnlit"
 			}
@@ -48,6 +48,38 @@
 			"settings":
 			{
 				"buffer_size": 168,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "src/BattleBots.cpp",
+			"settings":
+			{
+				"buffer_size": 8318,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "src/BattleBots.h",
+			"settings":
+			{
+				"buffer_size": 1153,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "/E/Users/James Whitwell/GamePlay/gameplay/res/shaders/textured-unlit.frag",
+			"settings":
+			{
+				"buffer_size": 1185,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "/E/Users/James Whitwell/GamePlay/gameplay/res/shaders/textured-unlit.vert",
+			"settings":
+			{
+				"buffer_size": 1733,
 				"line_ending": "Windows"
 			}
 		}
@@ -132,7 +164,7 @@
 	"groups":
 	[
 		{
-			"selected": 4,
+			"selected": 8,
 			"sheets":
 			[
 				{
@@ -167,15 +199,15 @@
 					"file": "res/battlebots.scene",
 					"settings":
 					{
-						"buffer_size": 1162,
+						"buffer_size": 882,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								120,
-								120
+								0,
+								0
 							]
 						],
 						"settings":
@@ -196,15 +228,15 @@
 					"file": "res/battlebots.material",
 					"settings":
 					{
-						"buffer_size": 2985,
+						"buffer_size": 3203,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								2985,
-								2985
+								0,
+								0
 							]
 						],
 						"settings":
@@ -268,6 +300,118 @@
 						"settings":
 						{
 							"syntax": "Packages/Batch File/Batch File.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 5,
+					"file": "src/BattleBots.cpp",
+					"settings":
+					{
+						"buffer_size": 8318,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								1299,
+								1299
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/C++/C++.tmLanguage",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 457.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 6,
+					"file": "src/BattleBots.h",
+					"settings":
+					{
+						"buffer_size": 1153,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								1071,
+								1071
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/C++/C++.tmLanguage",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 615.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 7,
+					"file": "/E/Users/James Whitwell/GamePlay/gameplay/res/shaders/textured-unlit.frag",
+					"settings":
+					{
+						"buffer_size": 1185,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								0,
+								0
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Text/Plain text.tmLanguage",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 8,
+					"file": "/E/Users/James Whitwell/GamePlay/gameplay/res/shaders/textured-unlit.vert",
+					"settings":
+					{
+						"buffer_size": 1733,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								0,
+								0
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Text/Plain text.tmLanguage",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
 						"translation.y": 0.0,

@@ -28,13 +28,24 @@ scene
     {
         collisionObject = res/battlebots.physics#staticBox
         
-        material = res/battlebots.material#red
+        material = res/battlebots.material#floor
         tags
         {
             dynamic
         }
     }
     
+	node barrier
+	{
+		collisionObject = res/battlebots.physics#staticBox
+
+		material = res/battlebots.material#wall
+		tags
+		{
+			dynamic
+		}
+	}
+
     physics
     {
         // Note: Gravity is set to 3x normal gravity to compenate for larger scale of scene.

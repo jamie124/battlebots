@@ -176,6 +176,9 @@
     <None Include="res\box.material" />
     <None Include="res\colored.frag" />
     <None Include="res\colored.vert" />
+    <None Include="res\concrete_bare.jpg" />
+    <None Include="res\dds\brick_grey.dds" />
+    <None Include="res\dds\concrete_bare.dds" />
     <None Include="res\game.fbx" />
     <None Include="res\game.gpb" />
   </ItemGroup>

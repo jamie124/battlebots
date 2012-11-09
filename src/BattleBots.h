@@ -57,8 +57,23 @@ private:
     bool drawScene(Node* node);
     bool initializeScene(Node* node);
     void initializeMaterial(Scene* scene, Node* node, Material* material);
+	void initializeCharacter();
+
+	void adjustCamera(float elapsedTime);
+	bool isOnFloor() const;
 
     Scene* _scene;
+
+	PhysicsCharacter* _character;
+	Node* _characterNode;
+	Node* _characterMeshNode;
+	
+	float _floorLevel;
+
+	int _rotateX;
+	unsigned int _keyFlags;
+
+	Vector2 _currentDirection;
 };
 
 #endif

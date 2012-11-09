@@ -2,7 +2,7 @@ scene
 {
     path = res/game.gpb
     
-    node box 
+    node character 
     {
         collisionObject = res/battlebots.physics#character
     }
@@ -13,7 +13,7 @@ scene
     }
     
     
-    node box
+    node characterMesh
     {
         
         material = res/battlebots.material#yellow

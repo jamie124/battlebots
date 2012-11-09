@@ -168,11 +168,16 @@
     </None>
     <None Include="game.config" />
     <None Include="icon.png" />
+    <None Include="res\battlebots.material" />
+    <None Include="res\battlebots.physics" />
+    <None Include="res\battlebots.scene" />
     <None Include="res\box.dae" />
     <None Include="res\box.gpb" />
     <None Include="res\box.material" />
     <None Include="res\colored.frag" />
     <None Include="res\colored.vert" />
+    <None Include="res\game.fbx" />
+    <None Include="res\game.gpb" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\BattleBots.cpp" />

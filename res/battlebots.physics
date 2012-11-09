@@ -1,0 +1,30 @@
+collisionObject character
+{
+    type = CHARACTER
+    shape = CAPSULE  
+    radius = 1.0
+    height = 3.8
+    center = 0, 1.0, 0
+    centerAbsolute = true
+    mass = 20.0
+    maxStepHeight = 0
+    maxSlopeAngle = 0
+}
+
+collisionObject staticBox
+{
+    type = RIGID_BODY
+    shape = BOX
+    mass = 0.0
+    friction = 0.5
+    restitution = 0.75
+    linearDamping = 0.025
+    angularDamping = 0.16
+}
+
+collisionObject camera
+{
+    type = GHOST_OBJECT
+    shape = SPHERE
+    radius = 0.5
+}

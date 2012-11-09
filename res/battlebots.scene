@@ -1,0 +1,43 @@
+scene 
+{
+    path = res/game.gpb
+    
+    node box 
+    {
+        collisionObject = res/battlebots.physics#character
+    }
+    
+    node camera
+    {
+        collisionObject = res/battlebots.physics#camera
+    }
+    
+    
+    node box
+    {
+        
+        material = res/battlebots.material#yellow
+        tags
+        {
+            dynamic
+        }
+    }
+    
+    
+    node floor
+    {
+        collisionObject = res/battlebots.physics#staticBox
+        
+        material = res/battlebots.material#red
+        tags
+        {
+            dynamic
+        }
+    }
+    
+    physics
+    {
+        // Note: Gravity is set to 3x normal gravity to compenate for larger scale of scene.
+        gravity = 0.0, -29.4, 0.0
+    }
+}

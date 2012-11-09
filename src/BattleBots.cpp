@@ -10,25 +10,49 @@ BattleBots::BattleBots()
 
 void BattleBots::initialize()
 {
-    // Load game scene from file
-    Bundle* bundle = Bundle::create("res/box.gpb");
-    _scene = bundle->loadScene();
-    SAFE_RELEASE(bundle);
+    setMultiTouch(true);
+
+    _scene = Scene::load("res/battlebots.scene");
+
+    Node* node = _scene->findNode("box");
+
+    // Get the physics object for box
+
+   // _character = static_cast<PhysicsCharacter*>(node->getCollisionObject());
+    //_characterNode = _scene->findNode("box");
 
     // Set the aspect ratio for the scene's camera to match the current resolution
     _scene->getActiveCamera()->setAspectRatio((float)getWidth() / (float)getHeight());
-    
-    // Get light node
-    Node* lightNode = _scene->findNode("directionalLight");
-    Light* light = lightNode->getLight();
 
-    // Initialize box model
-    Node* boxNode = _scene->findNode("box");
-    Model* boxModel = boxNode->getModel();
-    Material* boxMaterial = boxModel->setMaterial("res/box.material");
-    boxMaterial->getParameter("u_ambientColor")->setValue(_scene->getAmbientColor());
-    boxMaterial->getParameter("u_lightColor")->setValue(light->getColor());
-    boxMaterial->getParameter("u_lightDirection")->setValue(lightNode->getForwardVectorView());
+    _scene->visit(this, &BattleBots::initializeScene);
+}
+
+
+
+bool BattleBots::initializeScene(Node* node)
+{
+    // Get model from node
+    Model* model = node->getModel();
+
+    if (model && model->getMaterial()) {
+        // If model has material pass it to init method
+        initializeMaterial(_scene, node, model->getMaterial());
+    }
+
+    return true;
+}
+
+
+
+void BattleBots::initializeMaterial(Scene* scene, Node* node, Material* material)
+{
+    if (node->hasTag("dynamic")) {
+        Node* light = scene->findNode("directionalLight1");
+
+        material->getParameter("u_ambientColor")->bindValue(scene, &Scene::getAmbientColor);
+        material->getParameter("u_lightColor")->bindValue(light->getLight(), &Light::getColor);
+        material->getParameter("u_lightDirection")->bindValue(light, &Node::getForwardVectorView);
+    }
 }
 
 void BattleBots::finalize()
@@ -39,7 +63,6 @@ void BattleBots::finalize()
 void BattleBots::update(float elapsedTime)
 {
     // Rotate model
-    _scene->findNode("box")->rotateY(MATH_DEG_TO_RAD((float)elapsedTime / 1000.0f * 180.0f));
 }
 
 void BattleBots::render(float elapsedTime)

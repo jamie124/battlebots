@@ -7,7 +7,7 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-	<None Include="game.config" />
+    <None Include="game.config" />
     <None Include="icon.png" />
     <None Include="bar-descriptor.xml" />
     <None Include="res\box.dae">
@@ -23,6 +23,21 @@
       <Filter>res</Filter>
     </None>
     <None Include="res\colored.vert">
+      <Filter>res</Filter>
+    </None>
+    <None Include="res\battlebots.material">
+      <Filter>res</Filter>
+    </None>
+    <None Include="res\battlebots.physics">
+      <Filter>res</Filter>
+    </None>
+    <None Include="res\battlebots.scene">
+      <Filter>res</Filter>
+    </None>
+    <None Include="res\game.fbx">
+      <Filter>res</Filter>
+    </None>
+    <None Include="res\game.gpb">
       <Filter>res</Filter>
     </None>
   </ItemGroup>

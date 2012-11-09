@@ -4,4 +4,3 @@
 
 REM "%GAMEPLAY\bin\windows\gameplay-encoder.exe" -h heightmap.png game.fbx game.gpb
 
-pause

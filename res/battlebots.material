@@ -90,6 +90,20 @@ material concreteFloor : texturedUnlit
     }
 }
 
+material marbleRoof : texturedUnlit
+{
+    technique
+    {
+        pass
+        {
+            sampler u_diffuseTexture
+            {
+                path = @marble
+            }
+        }
+    }
+}
+
 // Defines a coloured material
 material colored
 {

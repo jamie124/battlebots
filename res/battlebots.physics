@@ -22,6 +22,19 @@ collisionObject staticBox
     angularDamping = 0.16
 }
 
+collisionObject mesh
+{
+    type = RIGID_BODY
+    shape = MESH
+}
+
+
+collisionObject doorway
+{
+    type = RIGID_BODY
+    shape = MESH
+}
+
 collisionObject camera
 {
     type = GHOST_OBJECT

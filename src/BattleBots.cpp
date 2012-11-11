@@ -16,7 +16,8 @@ BattleBots game;
 
 
 BattleBots::BattleBots()
-	: _scene(NULL), _character(NULL), _characterNode(NULL), _characterMeshNode(NULL), _rotateX(0), _keyFlags(0)
+	: _font(NULL), _scene(NULL), _character(NULL), _characterNode(NULL), _characterMeshNode(NULL), _cameraPivot(NULL), _rotateX(0), _rotateY(0), 
+	_yaw(0), _pitch(0), _keyFlags(0)
 {
 }
 
@@ -24,14 +25,17 @@ void BattleBots::initialize()
 {
 	setMultiTouch(true);
 
+	    // Load the font.
+    _font = Font::create("res/arial40.gpb");
+
 	_scene = Scene::load("res/battlebots.scene");
 
 		// Set the aspect ratio for the scene's camera to match the current resolution
 	_scene->getActiveCamera()->setAspectRatio((float)getWidth() / (float)getHeight());
 
+	_cameraPivot = _scene->findNode("cameraPivot");
+
 	initializeCharacter();
-
-
 
 	_scene->visit(this, &BattleBots::initializeScene);
 }
@@ -73,11 +77,15 @@ void BattleBots::initializeMaterial(Scene* scene, Node* node, Material* material
 
 void BattleBots::finalize()
 {
+	SAFE_RELEASE(_font);
 	SAFE_RELEASE(_scene);
 }
 
 void BattleBots::update(float elapsedTime)
 {
+	//_cameraPivot->rotateY(MATH_DEG_TO_RAD((float)elapsedTime / 10000.0f * 180.0f));
+	//_cameraPivot->rotateX(MATH_DEG_TO_RAD((float)elapsedTime / 10000.0f * _rotateX));
+
 	// Construct direction vector from keyboard input
 	if (_keyFlags & NORTH)
 		_currentDirection.y = 1;
@@ -160,6 +168,7 @@ void BattleBots::adjustCamera(float elapsedTime)
 
 	Vector3 oldPosition = cameraNode->getTranslationWorld();
 
+
 	PhysicsController::HitResult result;
 	PhysicsCollisionObject* occlusion = NULL;
 	do
@@ -209,6 +218,17 @@ void BattleBots::render(float elapsedTime)
 
 	// Visit all the nodes in the scene for drawing
 	_scene->visit(this, &BattleBots::drawScene);
+
+	_font->start();
+
+	sprintf(fps, "%d", getFrameRate());
+	_font->drawText(fps, 5, 5, Vector4(1,1,0,1), 20);
+
+	sprintf(cameraPos, "yaw:%d\npitch:%d", _yaw, _pitch
+		);
+	_font->drawText(cameraPos, 5, 25, Vector4(1,1,0,1), 20);
+
+	_font->finish();
 }
 
 bool BattleBots::drawScene(Node* node)
@@ -296,18 +316,41 @@ void BattleBots::touchEvent(Touch::TouchEvent evt, int x, int y, unsigned int co
 	case Touch::TOUCH_PRESS:
 		{
 			_rotateX = x;
+			_rotateY = y;
 		}
 		break;
 	case Touch::TOUCH_RELEASE:
 		{
 			_rotateX = 0;
+			_rotateY = 0;
 		}
 		break;
 	case Touch::TOUCH_MOVE:
 		{
 			int deltaX = x - _rotateX;
+			int deltaY = y - _rotateY;
 			_rotateX = x;
-			_character->getNode()->rotateY(-MATH_DEG_TO_RAD(deltaX * 0.5f));
+			_rotateY = y;
+
+			// Calculate the angles to move the camera
+			_pitch = _pitch + -MATH_DEG_TO_RAD(deltaY * 0.5f);
+			_yaw = _yaw + MATH_DEG_TO_RAD(deltaX * 0.5f);
+
+			/*
+			char buffer[100];
+
+			sprintf(buffer, "deltaY:%d deltaX:%d\nPitch:%f Yaw:%f\n", deltaY, deltaX, _pitch, _yaw);
+
+			Logger::log(Logger::Level::LEVEL_WARN, buffer);
+			*/
+
+			// Keep camera level
+			_cameraPivot->setRotation(0,0,0,1);
+
+			// Apply rotation
+			_cameraPivot->rotateY(-_yaw);
+			_cameraPivot->rotateX(_pitch);
+
 		}
 		break;
 	default:

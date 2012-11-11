@@ -62,18 +62,28 @@ private:
 	void adjustCamera(float elapsedTime);
 	bool isOnFloor() const;
 
+	Font* _font;
+
 	Scene* _scene;
 
 	PhysicsCharacter* _character;
 	Node* _characterNode;
 	Node* _characterMeshNode;
 	
+	Node* _cameraPivot;
+
 	float _floorLevel;
 
 	int _rotateX;
+	int _rotateY;
+	float _yaw, _pitch;
+
 	unsigned int _keyFlags;
 
 	Vector2 _currentDirection;
+
+	char fps[32];
+	char cameraPos[32];
 };
 
 #endif

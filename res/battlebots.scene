@@ -12,7 +12,6 @@ scene
         collisionObject = res/battlebots.physics#camera
     }
     
-    
     node characterMesh
     {
         
@@ -23,37 +22,33 @@ scene
         }
     }
     
-    
-    node testRoomFloor
+    // Test Room
+    node buildingFloor
     {
         collisionObject = res/battlebots.physics#staticBox
-        
         material = res/battlebots.material#concreteFloor
-
     }
+
+	node testRoomRoof
+	{
+		collisionObject = res/battlebots.physics#staticBox
+		material = res/battlebots.material#marbleRoof
+	}
     
-	node testRoomNorthWall
+	node startingRoomWalls
 	{
-		collisionObject = res/battlebots.physics#staticBox
-
+		collisionObject = res/battlebots.physics#mesh
 		material = res/battlebots.material#wall
-
 	}
 
-	node testRoomSouthWall
+
+	// Other Room
+
+
+	node wallWithDoor
 	{
-		collisionObject = res/battlebots.physics#staticBox
-
+		collisionObject = res/battlebots.physics#doorway
 		material = res/battlebots.material#wall
-
-	}
-
-	node testRoomEastWall
-	{
-		collisionObject = res/battlebots.physics#staticBox
-
-		material = res/battlebots.material#wall
-
 	}
 
     physics

@@ -30,7 +30,7 @@ scene
     }
 
     
-	node startingRoomWalls
+	node buildingWalls
 	{
 		collisionObject = res/battlebots.physics#mesh
 		material = res/battlebots.material#wall

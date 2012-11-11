@@ -29,11 +29,6 @@ scene
         material = res/battlebots.material#concreteFloor
     }
 
-	node testRoomRoof
-	{
-		collisionObject = res/battlebots.physics#staticBox
-		material = res/battlebots.material#marbleRoof
-	}
     
 	node startingRoomWalls
 	{
@@ -45,11 +40,6 @@ scene
 	// Other Room
 
 
-	node wallWithDoor
-	{
-		collisionObject = res/battlebots.physics#doorway
-		material = res/battlebots.material#wall
-	}
 
     physics
     {

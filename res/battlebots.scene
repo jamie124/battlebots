@@ -36,10 +36,11 @@ scene
 		material = res/battlebots.material#wall
 	}
 
-
-	// Other Room
-
-
+	node testTerrain 
+	{
+		collisionObject = res/battlebots.physics#mesh
+		material = res/battlebots.material#basicGrass
+	}
 
     physics
     {

@@ -104,6 +104,20 @@ material marbleRoof : texturedUnlit
     }
 }
 
+material basicGrass : texturedUnlit
+{
+    technique
+    {
+        pass
+        {
+            sampler u_diffuseTexture
+            {
+                path = @grass
+            }
+        }
+    }
+}
+
 // Defines a coloured material
 material colored
 {

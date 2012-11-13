@@ -253,21 +253,25 @@ void BattleBots::keyEvent(Keyboard::KeyEvent evt, int key)
 			break;
 		case Keyboard::KEY_W:
 		case Keyboard::KEY_CAPITAL_W:
+		case Keyboard::KEY_UP_ARROW:
 			_keyFlags |= NORTH;
 			_keyFlags &= ~SOUTH;
 			break;
 		case Keyboard::KEY_S:
 		case Keyboard::KEY_CAPITAL_S:
+		case Keyboard::KEY_DOWN_ARROW:
 			_keyFlags |= SOUTH;
 			_keyFlags &= ~NORTH;
 			break;
 		case Keyboard::KEY_A:
 		case Keyboard::KEY_CAPITAL_A:
+		case Keyboard::KEY_LEFT_ARROW:
 			_keyFlags |= WEST;
 			_keyFlags &= ~EAST;
 			break;
 		case Keyboard::KEY_D:
 		case Keyboard::KEY_CAPITAL_D:
+		case Keyboard::KEY_RIGHT_ARROW:
 			_keyFlags |= EAST;
 			_keyFlags &= ~WEST;
 			break;

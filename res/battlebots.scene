@@ -38,13 +38,12 @@ scene
 
 	node testTerrain 
 	{
-		collisionObject = res/battlebots.physics#mesh
+		collisionObject = res/battlebots.physics#terrain
 		material = res/battlebots.material#basicGrass
 	}
 
     physics
     {
-        // Note: Gravity is set to 3x normal gravity to compenate for larger scale of scene.
-        gravity = 0.0, -29.4, 0.0
+        gravity = 0.0, -9.8, 0.0
     }
 }

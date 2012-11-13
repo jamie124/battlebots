@@ -6,9 +6,14 @@ collisionObject character
     height = 2.8
     center = 0, 1.0, 0
     centerAbsolute = true
-    mass = 100.0
-    maxStepHeight = 10
-    maxSlopeAngle = 30
+    mass = 200.0
+
+}
+
+collisionObject terrain {
+    type = RIGID_BODY
+    shape = MESH
+	mass = 0.0
 }
 
 collisionObject staticBox

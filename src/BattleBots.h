@@ -27,6 +27,12 @@ public:
 	 */
 	void touchEvent(Touch::TouchEvent evt, int x, int y, unsigned int contactIndex);
 
+	void gestureSwipeEvent(int x, int y, int direction);
+    
+    void gesturePinchEvent(int x, int y, float scale);
+    
+    void gestureTapEvent(int x, int y);
+
 protected:
 
 	/**

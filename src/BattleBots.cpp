@@ -25,8 +25,8 @@ void BattleBots::initialize()
 {
 	setMultiTouch(true);
 
-	    // Load the font.
-    _font = Font::create("res/arial40.gpb");
+		// Load the font.
+	_font = Font::create("res/arial40.gpb");
 
 	_scene = Scene::load("res/battlebots.scene");
 
@@ -138,6 +138,22 @@ void BattleBots::update(float elapsedTime)
 		velocity.normalize();
 		velocity *= speed;
 		_character->setVelocity(velocity);
+
+		/*
+		float dt = elapsedTime / 1000.0f;
+
+		// Make the camera follow the character
+		Node* carNode = _character->getNode();
+		Vector3 carPosition(carNode->getTranslation());
+		Vector3 commandedPosition(carPosition + Vector3::unitY()*4.0f - carNode->getBackVector()*10.0f);
+		_cameraPivot->translateSmooth(commandedPosition, dt, 0.2f);
+		Matrix m;
+		Matrix::createLookAt(_cameraPivot->getTranslation(), carPosition, Vector3::unitY(), &m);
+		m.transpose();
+		Quaternion q;
+		m.getRotation(&q);
+		_cameraPivot->setRotation(q);
+		*/
 	}
 
 	// Adjust camera to avoid it from being obstructed by walls and objects in the scene.
@@ -201,12 +217,12 @@ void BattleBots::adjustCamera(float elapsedTime)
 	{
 		float d = _scene->getActiveCamera()->getNode()->getTranslationWorld().distance(_characterNode->getTranslationWorld());
 		float alpha = d < 10 ? (d * 0.1f) : 1.0f;
-		_characterMeshNode->setTag("transparent", alpha < 1.0f ? "true" : NULL);
+		//_characterMeshNode->setTag("transparent", alpha < 1.0f ? "true" : NULL);
 		//_materialParameterAlpha->setValue(alpha);
 	}
 	else
 	{
-		_characterMeshNode->setTag("transparent", NULL);
+		//_characterMeshNode->setTag("transparent", NULL);
 	   // _materialParameterAlpha->setValue(1.0f);
 	}
 }
@@ -218,6 +234,8 @@ void BattleBots::render(float elapsedTime)
 
 	// Visit all the nodes in the scene for drawing
 	_scene->visit(this, &BattleBots::drawScene);
+
+	getPhysicsController()->drawDebug(_scene->getActiveCamera()->getViewProjectionMatrix());
 
 	_font->start();
 
@@ -360,4 +378,16 @@ void BattleBots::touchEvent(Touch::TouchEvent evt, int x, int y, unsigned int co
 	default:
 		break;
 	}
+}
+
+void BattleBots::gestureSwipeEvent(int x, int y, int direction) {
+
+}
+   
+void BattleBots::gesturePinchEvent(int x, int y, float scale) {
+
+}
+
+void BattleBots::gestureTapEvent(int x, int y) {
+
 }

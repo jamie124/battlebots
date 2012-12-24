@@ -83,7 +83,7 @@
       <SubSystem>Windows</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <AdditionalDependencies>lua.lib;OpenAL32.lib;OpenGL32.lib;GLU32.lib;glew32.lib;libpng14.lib;zlib.lib;gameplay.lib;libogg.lib;libvorbis.lib;libvorbisfile.lib;BulletDynamics.lib;BulletCollision.lib;LinearMath.lib;%(AdditionalDependencies)</AdditionalDependencies>
-      <AdditionalLibraryDirectories>$(GAMEPLAY)\external-deps\lua\lib\windows\x86;$(GAMEPLAY)\external-deps\bullet\lib\windows\x86;$(GAMEPLAY)\external-deps\openal\lib\windows\x86;$(GAMEPLAY)\external-deps\oggvorbis\lib\windows\x86;$(GAMEPLAY)\external-deps\glew\lib\windows\x86;$(GAMEPLAY)\external-deps\libpng\lib\windows\x86;$(GAMEPLAY)\external-deps\zlib\lib\windows\x86;$(GAMEPLAY)\gameplay\windows\x86\$(Configuration)</AdditionalLibraryDirectories>
+      <AdditionalLibraryDirectories>$(GAMEPLAY)\external-deps\lua\lib\\windows\x86;$(GAMEPLAY)\external-deps\bullet\lib\windows\x86;$(GAMEPLAY)\external-deps\openal\lib\windows\x86;$(GAMEPLAY)\external-deps\oggvorbis\lib\windows\x86;$(GAMEPLAY)\external-deps\glew\lib\windows\x86;$(GAMEPLAY)\external-deps\libpng\lib\windows\x86;$(GAMEPLAY)\external-deps\zlib\lib\windows\x86;$(GAMEPLAY)\gameplay\$(Configuration);$(GAMEPLAY)\gameplay\windows\x86\$(Configuration)</AdditionalLibraryDirectories>
     </Link>
     <PostBuildEvent>
       <Command>

@@ -8,11 +8,36 @@
 	"buffers":
 	[
 		{
-			"file": ".gitignore",
+			"file": "/E/ndk_workspace/.metadata/.plugins/org.eclipse.core.runtime/.settings/com.rim.tad.tools.qml.core.prefs",
 			"settings":
 			{
-				"buffer_size": 520,
+				"buffer_size": 46,
+				"line_ending": "Windows",
+				"name": "eclipse.preferences.version=1"
+			}
+		},
+		{
+			"file": "/E/Downloads/install.bat",
+			"settings":
+			{
+				"buffer_size": 623,
 				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "/C/Users/James Whitwell/CellCast.conf",
+			"settings":
+			{
+				"buffer_size": 1271,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "/E/Users/James Whitwell/android-ndk-r8d/README.TXT",
+			"settings":
+			{
+				"buffer_size": 1360,
+				"line_ending": "Unix"
 			}
 		}
 	],
@@ -40,13 +65,45 @@
 	},
 	"file_history":
 	[
-		"/E/Users/James Whitwell/GamePlay/gameplay-samples/sample03-character/game.config",
+		"/E/Users/James Whitwell/Documents/GitHub/DCPU-Developer/debug_dcpu_temp.dbg",
+		"/E/Users/James Whitwell/unity/BattleBots/Assets/dcpu/bin/Debug/test.dasm",
+		"/E/Downloads/Visual Studio/Setup/setup.sdb",
+		"/E/Users/James Whitwell/blackberry/blackberry.tools.SDK/readme.txt",
+		"/E/Qt/4.8.4/README",
+		"/E/Qt/4.8.4/INSTALL",
+		"/E/Users/James Whitwell/unity/BattleBots/Assets/dcpu/test.dasm",
+		"/E/ndk_workspace/poppler/src/qt4/src/poppler-document.cc",
+		"/C/Users/James Whitwell/Dropbox/James Shared/bb-10/poppler-0.20.5/qt4/Makefile.in",
+		"/C/Users/James Whitwell/Dropbox/James Shared/bb-10/poppler-0.20.5/qt4/Makefile.am",
+		"/E/Users/James Whitwell/Documents/GitHub/DCPU-Developer/dcpu.pro.user",
+		"/E/Users/James Whitwell/Documents/GitHub/DCPU-Developer/dcpu_developer.pro",
+		"/E/Users/James Whitwell/ai_sandbox/CaptureTheFlag-sdk/mycmd.py",
+		"/E/Users/James Whitwell/ai_sandbox/CaptureTheFlag-sdk/examples.py",
+		"/E/Users/James Whitwell/ai_sandbox/CaptureTheFlag-sdk/simulate.py",
+		"/E/Users/James Whitwell/unity/BattleBots/Assets/KLI/publish.sh",
+		"/E/Users/James Whitwell/unity/BattleBots/Assets/UnityLuaInterfaceTest/Scripts/LuaScripts/CallUnityFunctionFromLua.lua",
+		"/E/Users/James Whitwell/unity/BattleBots/Assets/scripts/Assembler.cs",
+		"/E/Users/James Whitwell/unity/BattleBots/Assets/scripts/Lexer.cs",
+		"/E/Users/James Whitwell/unity/BattleBots/Assets/scripts/CodeGenerator.cs",
+		"/E/Users/James Whitwell/unity/BattleBots/Assets/scripts/Label.cs",
+		"/E/Users/James Whitwell/unity/BattleBots/Assets/scripts/CodeIssue.cs",
+		"/E/Users/James Whitwell/unity/BattleBots/Assets/dcpu.sln",
+		"/E/Users/James Whitwell/unity/BattleBots/Assets/dcpu/dcpu.csproj.user",
+		"/E/Users/James Whitwell/unity/BattleBots/Assets/dcpu/dcpu.csproj",
+		"/E/Users/James Whitwell/unity/BattleBots/Assets/dcpu_backup/Assembler.cs",
+		"/E/Users/James Whitwell/ai_sandbox/CaptureTheFlag-sdk/mybot.py",
+		"/E/Users/James Whitwell/ai_sandbox/CaptureTheFlag-sdk/simulate.bat",
+		"/E/Users/James Whitwell/ai_sandbox/CaptureTheFlag-sdk/competition.py",
 		"/E/Users/James Whitwell/Documents/GitHub/battlebots/.gitignore",
+		"/E/Users/James Whitwell/Documents/GitHub/battlebots/src/BattleBots.cpp",
+		"/E/Users/James Whitwell/ai_sandbox/CaptureTheFlag-sdk/competition.bat",
+		"/E/Users/James Whitwell/ai_sandbox/CaptureTheFlag-sdk/bootstrap.py",
+		"/E/Users/James Whitwell/ai_sandbox/CaptureTheFlag-sdk/game/run.bat",
+		"/E/Users/James Whitwell/GamePlay/gameplay-samples/sample03-character/game.config",
 		"/E/Users/James Whitwell/Documents/GitHub/battlebots/res/battlebots.scene",
 		"/E/Users/James Whitwell/Documents/GitHub/battlebots/res/battlebots.material",
 		"/E/Users/James Whitwell/Documents/GitHub/battlebots/res/battlebots.physics",
 		"/E/Users/James Whitwell/Documents/GitHub/battlebots/res/encode-scene.bat",
-		"/E/Users/James Whitwell/Documents/GitHub/battlebots/src/BattleBots.cpp",
 		"/E/Users/James Whitwell/Documents/GitHub/battlebots/src/BattleBots.h",
 		"/E/Users/James Whitwell/GamePlay/gameplay/res/shaders/textured-unlit.frag",
 		"/E/Users/James Whitwell/GamePlay/gameplay/res/shaders/textured-unlit.vert",
@@ -90,6 +147,8 @@
 		"case_sensitive": false,
 		"find_history":
 		[
+			"moc",
+			"ushort",
 			"u_am",
 			"1"
 		],
@@ -109,23 +168,76 @@
 	"groups":
 	[
 		{
-			"selected": 0,
+			"selected": 3,
 			"sheets":
 			[
 				{
 					"buffer": 0,
-					"file": ".gitignore",
+					"file": "/E/ndk_workspace/.metadata/.plugins/org.eclipse.core.runtime/.settings/com.rim.tad.tools.qml.core.prefs",
 					"settings":
 					{
-						"buffer_size": 520,
+						"buffer_size": 46,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								506,
-								506
+								46,
+								46
+							]
+						],
+						"settings":
+						{
+							"auto_name": "eclipse.preferences.version=1",
+							"syntax": "Packages/Text/Plain text.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 1,
+					"file": "/E/Downloads/install.bat",
+					"settings":
+					{
+						"buffer_size": 623,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								0,
+								0
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Batch File/Batch File.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 2,
+					"file": "/C/Users/James Whitwell/CellCast.conf",
+					"settings":
+					{
+						"buffer_size": 1271,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								0,
+								0
 							]
 						],
 						"settings":
@@ -133,7 +245,33 @@
 							"syntax": "Packages/Text/Plain text.tmLanguage"
 						},
 						"translation.x": 0.0,
-						"translation.y": 270.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 3,
+					"file": "/E/Users/James Whitwell/android-ndk-r8d/README.TXT",
+					"settings":
+					{
+						"buffer_size": 1360,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								0,
+								0
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Text/Plain text.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"

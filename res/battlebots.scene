@@ -16,6 +16,7 @@ scene
     {
         
         material = res/battlebots.material#yellow
+		collisionObject = res/battlebots.physics#character
         tags
         {
             dynamic

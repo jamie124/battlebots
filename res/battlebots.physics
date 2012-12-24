@@ -1,13 +1,11 @@
 collisionObject character
 {
     type = CHARACTER
-    shape = CAPSULE  
-    radius = 0.5
-    height = 2.8
-    center = 0, 1.0, 0
-    centerAbsolute = true
-    mass = 200.0
+    shape = BOX  
+    height = 10.8
 
+    center = 0, 20.0, 0
+    centerAbsolute = true
 }
 
 collisionObject terrain {

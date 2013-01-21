@@ -75,7 +75,7 @@
       <WarningLevel>Level3</WarningLevel>
       <Optimization>Disabled</Optimization>
       <PreprocessorDefinitions>WIN32;_DEBUG;_WINDOWS;_ITERATOR_DEBUG_LEVEL=0;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>../../../GamePlay/external-deps/lua/include;../../../GamePlay/external-deps/bullet/include;../../../GamePlay/gameplay/src;../../../GamePlay/external-deps/openal/include/AL;../../../GamePlay/external-deps/oggvorbis/include;../../../GamePlay/external-deps/libpng/include;../../../GamePlay/external-deps/zlib/include;../../../GamePlay/external-deps/glew/include</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(GAMEPLAY)/external-deps/lua/include;$(GAMEPLAY)/external-deps/bullet/include;$(GAMEPLAY)/gameplay/src;$(GAMEPLAY)/external-deps/openal/include/AL;$(GAMEPLAY)/external-deps/oggvorbis/include;$(GAMEPLAY)/external-deps/libpng/include;$(GAMEPLAY)/external-deps/zlib/include;$(GAMEPLAY)/external-deps/glew/include</AdditionalIncludeDirectories>
       <RuntimeTypeInfo>true</RuntimeTypeInfo>
       <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
     </ClCompile>
@@ -83,7 +83,7 @@
       <SubSystem>Windows</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <AdditionalDependencies>lua.lib;OpenAL32.lib;OpenGL32.lib;GLU32.lib;glew32.lib;libpng14.lib;zlib.lib;gameplay.lib;libogg.lib;libvorbis.lib;libvorbisfile.lib;BulletDynamics.lib;BulletCollision.lib;LinearMath.lib;%(AdditionalDependencies)</AdditionalDependencies>
-      <AdditionalLibraryDirectories>$(GAMEPLAY)\external-deps\lua\lib\\windows\x86;$(GAMEPLAY)\external-deps\bullet\lib\windows\x86;$(GAMEPLAY)\external-deps\openal\lib\windows\x86;$(GAMEPLAY)\external-deps\oggvorbis\lib\windows\x86;$(GAMEPLAY)\external-deps\glew\lib\windows\x86;$(GAMEPLAY)\external-deps\libpng\lib\windows\x86;$(GAMEPLAY)\external-deps\zlib\lib\windows\x86;$(GAMEPLAY)\gameplay\$(Configuration);$(GAMEPLAY)\gameplay\windows\x86\$(Configuration)</AdditionalLibraryDirectories>
+      <AdditionalLibraryDirectories>$(GAMEPLAY)/external-deps/lua/lib/windows/x86;$(GAMEPLAY)\external-deps\bullet\lib\windows\x86;$(GAMEPLAY)\external-deps\openal\lib\windows\x86;$(GAMEPLAY)\external-deps\oggvorbis\lib\windows\x86;$(GAMEPLAY)\external-deps\glew\lib\windows\x86;$(GAMEPLAY)\external-deps\libpng\lib\windows\x86;$(GAMEPLAY)\external-deps\zlib\lib\windows\x86;$(GAMEPLAY)\gameplay\$(Configuration);$(GAMEPLAY)\gameplay\windows\x86\$(Configuration)</AdditionalLibraryDirectories>
     </Link>
     <PostBuildEvent>
       <Command>
@@ -173,6 +173,7 @@
     <None Include="res\battlebots.material" />
     <None Include="res\battlebots.physics" />
     <None Include="res\battlebots.scene" />
+    <None Include="res\battlebots.terrain" />
     <None Include="res\box.dae" />
     <None Include="res\box.gpb" />
     <None Include="res\box.material" />

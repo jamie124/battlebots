@@ -8,36 +8,51 @@
 	"buffers":
 	[
 		{
-			"file": "/E/ndk_workspace/.metadata/.plugins/org.eclipse.core.runtime/.settings/com.rim.tad.tools.qml.core.prefs",
+			"file": "/E/Users/James Whitwell/Documents/GitHub/GamePlay/gameplay-tests/res/common/terrain/encode.bat",
 			"settings":
 			{
-				"buffer_size": 46,
-				"line_ending": "Windows",
-				"name": "eclipse.preferences.version=1"
-			}
-		},
-		{
-			"file": "/E/Downloads/install.bat",
-			"settings":
-			{
-				"buffer_size": 623,
+				"buffer_size": 155,
 				"line_ending": "Windows"
 			}
 		},
 		{
-			"file": "/C/Users/James Whitwell/CellCast.conf",
+			"file": "res/encode-scene.bat",
 			"settings":
 			{
-				"buffer_size": 1271,
-				"line_ending": "Unix"
+				"buffer_size": 250,
+				"line_ending": "Windows"
 			}
 		},
 		{
-			"file": "/E/Users/James Whitwell/android-ndk-r8d/README.TXT",
+			"file": "/E/Users/James Whitwell/Documents/GitHub/GamePlay/gameplay-tests/res/common/terrain/test.scene",
 			"settings":
 			{
-				"buffer_size": 1360,
-				"line_ending": "Unix"
+				"buffer_size": 850,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "/E/Users/James Whitwell/Documents/GitHub/GamePlay/gameplay-samples/sample03-character/res/common/scene.scene",
+			"settings":
+			{
+				"buffer_size": 4600,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "/E/Users/James Whitwell/Documents/GitHub/GamePlay/gameplay-samples/sample03-character/res/common/scene.physics",
+			"settings":
+			{
+				"buffer_size": 1175,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "/E/Users/James Whitwell/Documents/GitHub/GamePlay/gameplay-tests/res/common/terrain/test.terrain",
+			"settings":
+			{
+				"buffer_size": 498,
+				"line_ending": "Windows"
 			}
 		}
 	],
@@ -65,7 +80,22 @@
 	},
 	"file_history":
 	[
+		"/E/Users/James Whitwell/Documents/GitHub/GamePlay/gameplay-tests/res/common/test.scene",
+		"/E/Users/James Whitwell/Documents/GitHub/DCPU-Developer/dcpu_temp.bin",
+		"/E/Users/James Whitwell/Documents/GitHub/DCPU-Developer/dcpu_temp.dbg",
+		"/E/Users/James Whitwell/Documents/GitHub/DCPU-Developer/debug_dcpu_temp.bin",
+		"/E/Users/James Whitwell/Documents/GitHub/GamePlay/gameplay-tests/res/design/scene-encode.bat",
+		"/E/Users/James Whitwell/Documents/GitHub/GamePlay/gameplay-tests/res/common/terrain/encode.bat",
+		"/E/Users/James Whitwell/Documents/GitHub/DCPU-Developer/demo_asm/clock.dasm16",
 		"/E/Users/James Whitwell/Documents/GitHub/DCPU-Developer/debug_dcpu_temp.dbg",
+		"/E/Users/James Whitwell/Documents/GitHub/DCPU-Developer/dcpu_temp.dasm16",
+		"/E/ndk_workspace/.metadata/.plugins/org.eclipse.core.runtime/.settings/com.rim.tad.tools.qml.core.prefs",
+		"/E/Downloads/install.bat",
+		"/C/Users/James Whitwell/CellCast.conf",
+		"/E/Users/James Whitwell/android-ndk-r8d/README.TXT",
+		"/E/Users/James Whitwell/Documents/GitHub/DCPU-Developer/dcpu_developer.pro.user.2.5pre1",
+		"/E/ndk_workspace/CellCast/bar-descriptor.xml",
+		"/E/Users/James Whitwell/Documents/GitHub/DCPU-Developer/devices/lem.cpp",
 		"/E/Users/James Whitwell/unity/BattleBots/Assets/dcpu/bin/Debug/test.dasm",
 		"/E/Downloads/Visual Studio/Setup/setup.sdb",
 		"/E/Users/James Whitwell/blackberry/blackberry.tools.SDK/readme.txt",
@@ -147,6 +177,14 @@
 		"case_sensitive": false,
 		"find_history":
 		[
+			"camera",
+			"00ee",
+			"63c1:0023",
+			"1a00",
+			"a034",
+			"1a00",
+			"0004",
+			"0400",
 			"moc",
 			"ushort",
 			"u_am",
@@ -168,29 +206,28 @@
 	"groups":
 	[
 		{
-			"selected": 3,
+			"selected": 4,
 			"sheets":
 			[
 				{
 					"buffer": 0,
-					"file": "/E/ndk_workspace/.metadata/.plugins/org.eclipse.core.runtime/.settings/com.rim.tad.tools.qml.core.prefs",
+					"file": "/E/Users/James Whitwell/Documents/GitHub/GamePlay/gameplay-tests/res/common/terrain/encode.bat",
 					"settings":
 					{
-						"buffer_size": 46,
+						"buffer_size": 155,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								46,
-								46
+								155,
+								155
 							]
 						],
 						"settings":
 						{
-							"auto_name": "eclipse.preferences.version=1",
-							"syntax": "Packages/Text/Plain text.tmLanguage"
+							"syntax": "Packages/Batch File/Batch File.tmLanguage"
 						},
 						"translation.x": 0.0,
 						"translation.y": 0.0,
@@ -200,18 +237,18 @@
 				},
 				{
 					"buffer": 1,
-					"file": "/E/Downloads/install.bat",
+					"file": "res/encode-scene.bat",
 					"settings":
 					{
-						"buffer_size": 623,
+						"buffer_size": 250,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								0,
-								0
+								250,
+								250
 							]
 						],
 						"settings":
@@ -226,18 +263,18 @@
 				},
 				{
 					"buffer": 2,
-					"file": "/C/Users/James Whitwell/CellCast.conf",
+					"file": "/E/Users/James Whitwell/Documents/GitHub/GamePlay/gameplay-tests/res/common/terrain/test.scene",
 					"settings":
 					{
-						"buffer_size": 1271,
+						"buffer_size": 850,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								0,
-								0
+								383,
+								383
 							]
 						],
 						"settings":
@@ -252,23 +289,80 @@
 				},
 				{
 					"buffer": 3,
-					"file": "/E/Users/James Whitwell/android-ndk-r8d/README.TXT",
+					"file": "/E/Users/James Whitwell/Documents/GitHub/GamePlay/gameplay-samples/sample03-character/res/common/scene.scene",
 					"settings":
 					{
-						"buffer_size": 1360,
+						"buffer_size": 4600,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								0,
-								0
+								436,
+								442
 							]
 						],
 						"settings":
 						{
-							"syntax": "Packages/Text/Plain text.tmLanguage"
+							"syntax": "Packages/Text/Plain text.tmLanguage",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 4,
+					"file": "/E/Users/James Whitwell/Documents/GitHub/GamePlay/gameplay-samples/sample03-character/res/common/scene.physics",
+					"settings":
+					{
+						"buffer_size": 1175,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								1084,
+								899
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Text/Plain text.tmLanguage",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 315.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 5,
+					"file": "/E/Users/James Whitwell/Documents/GitHub/GamePlay/gameplay-tests/res/common/terrain/test.terrain",
+					"settings":
+					{
+						"buffer_size": 498,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								108,
+								108
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Text/Plain text.tmLanguage",
+							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
 						"translation.y": 0.0,

@@ -1,22 +1,65 @@
 scene 
 {
+	node terrain
+	{
+		terrain = res/battlebots.terrain
+
+		collisionObject
+		{
+			type = RIGID_BODY
+			shape = HEIGHTFIELD
+			mass = 0
+			kinematic = true
+		}
+	}
+
     path = res/game.gpb
     
     node character 
     {
         collisionObject = res/battlebots.physics#character
+		translate = 3095, 400, -4393
     }
-    
-    node camera
+
+	node characterMesh
     {
-        collisionObject = res/battlebots.physics#camera
+       // material = res/battlebots.material#boy
+        tags
+        {
+            dynamic
+        }
     }
     
+	node sky
+    {
+        url = res/sky.gpb#sphere
+
+        material = res/sky.material
+
+        scale = 30000,30000,30000
+        translate = 0,25000,0
+    }
+
+
+	node camera
+	{
+		collisionObject = res/battlebots.physics#camera
+		//camera
+		//{
+		//	type = PERSPECTIVE
+		//	nearPlane = 0.25
+		//	farPlane = 100000
+		//}
+
+
+		//rotate = 0,1,0, 148
+	}
+
     node characterMesh
     {
         
         material = res/battlebots.material#yellow
-		collisionObject = res/battlebots.physics#character
+		//collisionObject = res/battlebots.physics#character
         tags
         {
             dynamic
@@ -37,14 +80,18 @@ scene
 		material = res/battlebots.material#wall
 	}
 
-	node testTerrain 
-	{
-		collisionObject = res/battlebots.physics#terrain
-		material = res/battlebots.material#basicGrass
-	}
+
+	// Basic scene lighting properties
+	ambientColor = 0.2, 0.2, 0.2
+	lightColor = 1, 1, 1
+	lightDirection = -1, -0.75, -0.75
+
+	// Set active camera
+	activeCamera = camera
 
     physics
     {
-        gravity = 0.0, -9.8, 0.0
+        // Bump up gravity force for this sample since our units are larger than normal
+        gravity = 0, -9, 0
     }
 }

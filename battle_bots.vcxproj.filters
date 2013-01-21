@@ -52,6 +52,9 @@
     <None Include="res\dds\brick_grey.dds">
       <Filter>res\dds</Filter>
     </None>
+    <None Include="res\battlebots.terrain">
+      <Filter>res</Filter>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\BattleBots.h">

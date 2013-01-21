@@ -1,19 +1,29 @@
 collisionObject character
 {
+   // type = CHARACTER
+  //  shape = BOX  
+  //  height = 20.8
+
+   // center = 0, 20.0, 0
+  //  centerAbsolute = true
+
     type = CHARACTER
-    shape = BOX  
-    height = 10.8
-
-    center = 0, 20.0, 0
+    shape = CAPSULE  
+    radius = 1.2
+    height = 6.0
+    center = 0, 3.0, 0
     centerAbsolute = true
+    mass = 20.0
+    maxStepHeight = 0
+    maxSlopeAngle = 0
 }
 
-collisionObject terrain {
-    type = RIGID_BODY
-    shape = MESH
-	mass = 0.0
-}
-
+//collisionObject terrain {
+//    type = RIGID_BODY
+//    shape = MESH
+//	mass = 0.0
+//}
+s
 collisionObject staticBox
 {
     type = RIGID_BODY

@@ -14,10 +14,25 @@ BattleBots game;
 #define RUN_SPEED 15.0f
 #define CAMERA_FOCUS_DISTANCE 16.0f
 
+struct TerrainHitFilter : public PhysicsController::HitFilter
+{
+	TerrainHitFilter(Terrain* terrain)
+	{
+		terrainObject = terrain->getNode()->getCollisionObject();
+	}
+
+	bool filter(PhysicsCollisionObject* object)
+	{
+		// Filter out all objects but the terrain
+		return (object != terrainObject);
+	}
+
+	PhysicsCollisionObject* terrainObject;
+};
 
 BattleBots::BattleBots()
-	: _font(NULL), _scene(NULL), _character(NULL), _characterNode(NULL), _characterMeshNode(NULL), _cameraPivot(NULL), _rotateX(0), _rotateY(0), 
-	_yaw(0), _pitch(0), _keyFlags(0)
+	: _font(NULL), _scene(NULL), _terrain(NULL), _sky(NULL), _characterPhysics(NULL), _characterNode(NULL), _characterScaleNode(NULL), _characterMeshNode(NULL), _cameraPivot(NULL), _rotateX(0), _rotateY(0), 
+	_yaw(0), _pitch(0), _keyFlags(0), snapToGround(true), vsync(true), mode(MODE_LOOK)
 {
 }
 
@@ -25,28 +40,37 @@ void BattleBots::initialize()
 {
 	setMultiTouch(true);
 
-		// Load the font.
+	// Load the font.
 	_font = Font::create("res/arial40.gpb");
 
 	_scene = Scene::load("res/battlebots.scene");
 
-		// Set the aspect ratio for the scene's camera to match the current resolution
-	_scene->getActiveCamera()->setAspectRatio((float)getWidth() / (float)getHeight());
+	_terrain = _scene->findNode("terrain")->getTerrain();
 
-	_cameraPivot = _scene->findNode("cameraPivot");
+	_sky = _scene->findNode("sky");
+
+	// Set the aspect ratio for the scene's camera to match the current resolution
+	//_scene->getActiveCamera()->setAspectRatio((float)getWidth() / (float)getHeight());
+
+	//_cameraPivot = _scene->findNode("cameraPivot");
+
 
 	initializeCharacter();
 
 	_scene->visit(this, &BattleBots::initializeScene);
+
+	// Use script camera for navigation
+	//Game::getInstance()->getScriptController()->executeFunction<void>("camera_setActive", "b", true);
+	//Game::getInstance()->getScriptController()->executeFunction<void>("camera_setSpeed", "ff", 100, 1000);
 }
 
 void BattleBots::initializeCharacter() {
-	Node* node = _scene->findNode("character");
+	//Node* node = _scene->findNode("character");
+	_characterNode = _scene->findNode("character");
+	_characterPhysics = static_cast<PhysicsCharacter*>(_characterNode->getCollisionObject());
 
-	_character = static_cast<PhysicsCharacter*>(node->getCollisionObject());
-
-	_characterNode = node->findNode("characterScale");
-	_characterMeshNode = node->findNode("characterMesh");
+	_characterScaleNode = _characterNode->findNode("characterScale");
+	_characterMeshNode = _characterNode->findNode("characterMesh");
 }
 
 bool BattleBots::initializeScene(Node* node)
@@ -72,7 +96,7 @@ void BattleBots::initializeMaterial(Scene* scene, Node* node, Material* material
 		material->getParameter("u_ambientColor")->bindValue(scene, &Scene::getAmbientColor);
 		material->getParameter("u_lightColor")->bindValue(light->getLight(), &Light::getColor);
 		material->getParameter("u_lightDirection")->bindValue(light, &Node::getForwardVectorView);
-	}
+	} 
 }
 
 void BattleBots::finalize()
@@ -86,28 +110,43 @@ void BattleBots::update(float elapsedTime)
 	//_cameraPivot->rotateY(MATH_DEG_TO_RAD((float)elapsedTime / 10000.0f * 180.0f));
 	//_cameraPivot->rotateX(MATH_DEG_TO_RAD((float)elapsedTime / 10000.0f * _rotateX));
 
+	Node* camera = _scene->getActiveCamera()->getNode();
+
 	// Construct direction vector from keyboard input
-	if (_keyFlags & NORTH)
-		_currentDirection.y = 1;
-	else if (_keyFlags & SOUTH)
-		_currentDirection.y = -1;
-	else
-		_currentDirection.y = 0;
 
-	if (_keyFlags & EAST)
-		_currentDirection.x = 1;
-	else if (_keyFlags & WEST)
-		_currentDirection.x = -1;
-	else 
-		_currentDirection.x = 0;
+	// Keep the sky centered around the viewer
+	_sky->setTranslationX(-_characterNode->getTranslationX());
+    _sky->setTranslationZ(-_characterNode->getTranslationZ());
 
-	_currentDirection.normalize();
-	if ((_keyFlags & RUNNING) == 0)
-		_currentDirection *= 0.5f;
+	 _currentDirection.set(Vector2::zero());
 
-		// Update character animation and velocity
-	if (_currentDirection.isZero()){
-		_character->setVelocity(Vector3::zero());
+	if (_currentDirection.isZero()) {
+		if (_keyFlags & NORTH) {
+			_currentDirection.y = 1;
+		} else if (_keyFlags & SOUTH) {
+			_currentDirection.y = -1;
+		} else {
+			_currentDirection.y = 0;
+		}
+
+		if (_keyFlags & EAST) {
+			_currentDirection.x = 1;
+		} else if (_keyFlags & WEST) {
+			_currentDirection.x = -1;
+		} else {
+			_currentDirection.x = 0;
+		}
+
+		_currentDirection.normalize();
+
+		if ((_keyFlags & RUNNING) == 0) {
+			_currentDirection *= 0.5f;
+		}
+	}
+
+	// Update character animation and velocity
+	if (_currentDirection.isZero()) {
+		_characterPhysics->setVelocity(Vector3::zero());
 	} else {
 		bool running = (_currentDirection.lengthSquared() > 0.75f);
 		float speed = running ? RUN_SPEED : WALK_SPEED;
@@ -119,7 +158,7 @@ void BattleBots::update(float elapsedTime)
 		cameraMatrix.getForwardVector(&cameraForward);
 
 		// Get the current forward vector for the mesh node (negate it since the character was modelled facing +z)
-		Vector3 currentHeading(-_characterNode->getForwardVectorWorld());
+		Vector3 currentHeading(-_characterScaleNode->getForwardVectorWorld());
 
 		// Construct a new forward vector for the mesh node
 		Vector3 newHeading(cameraForward * _currentDirection.y + cameraRight * _currentDirection.x);
@@ -131,34 +170,53 @@ void BattleBots::update(float elapsedTime)
 		else if (angle < -MATH_PI)
 			angle += MATH_PIX2;
 		angle *= (float)elapsedTime * 0.001f * MATH_PIX2;
-		_characterNode->rotate(Vector3::unitY(), angle);
+		_characterScaleNode->rotate(Vector3::unitY(), angle);
 
 		// Update the character's velocity
-		Vector3 velocity = -_characterNode->getForwardVectorWorld();
+		Vector3 velocity = -_characterScaleNode->getForwardVectorWorld();
 		velocity.normalize();
 		velocity *= speed;
-		_character->setVelocity(velocity);
 
-		/*
-		float dt = elapsedTime / 1000.0f;
-
-		// Make the camera follow the character
-		Node* carNode = _character->getNode();
-		Vector3 carPosition(carNode->getTranslation());
-		Vector3 commandedPosition(carPosition + Vector3::unitY()*4.0f - carNode->getBackVector()*10.0f);
-		_cameraPivot->translateSmooth(commandedPosition, dt, 0.2f);
-		Matrix m;
-		Matrix::createLookAt(_cameraPivot->getTranslation(), carPosition, Vector3::unitY(), &m);
-		m.transpose();
-		Quaternion q;
-		m.getRotation(&q);
-		_cameraPivot->setRotation(q);
-		*/
+		_characterPhysics->setVelocity(velocity);
 	}
+
+
+	//_cameraPivot->setTranslation(_characterScaleNode->getTranslationWorld());
 
 	// Adjust camera to avoid it from being obstructed by walls and objects in the scene.
 	adjustCamera(elapsedTime);
 
+
+	if (snapToGround)
+	{
+		// Get current camera location in world coords
+		Vector3 pos = _characterScaleNode->getTranslationWorld();
+
+		// Query the height of our terrain at this location
+		float height = _terrain->getHeight(pos.x, pos.z);
+
+		// Snap our camera to the ground
+		Node* node = _scene->findNode("character");
+		node->setTranslationY(height + 10);
+	}
+
+	// Keep the sky centered around the viewer
+	//  _sky->setTranslationX(camera->getTranslationX());
+	//  _sky->setTranslationZ(camera->getTranslationZ());
+
+	// Prune dropped physics shapes that fall off the terrain
+	for (std::list<Node*>::iterator itr = shapes.begin(); itr != shapes.end(); ) {
+		Node* shape = *itr;
+
+		if (shape->getTranslation().y < 0) {
+			_scene->removeNode(shape);
+			std::list<Node*>::iterator oldItr = itr;
+			++itr;
+			shapes.erase(oldItr);
+		} else {
+			++itr;
+		}
+	}
 }
 
 void BattleBots::adjustCamera(float elapsedTime)
@@ -184,13 +242,12 @@ void BattleBots::adjustCamera(float elapsedTime)
 
 	Vector3 oldPosition = cameraNode->getTranslationWorld();
 
-
 	PhysicsController::HitResult result;
 	PhysicsCollisionObject* occlusion = NULL;
-	do
-	{
+
+	do {
 		// Perform a ray test to check for camera collisions
-		if (!physics->sweepTest(cameraNode->getCollisionObject(), focalPoint, &result) || result.object == _character)
+		if (!physics->sweepTest(cameraNode->getCollisionObject(), focalPoint, &result) || result.object == _characterPhysics)
 			break;
 
 		occlusion = result.object;
@@ -201,11 +258,13 @@ void BattleBots::adjustCamera(float elapsedTime)
 		cameraOffset += d;
 		while (physics->sweepTest(cameraNode->getCollisionObject(), focalPoint, &result) && result.object == occlusion)
 		{
+			Node* camera = _scene->getActiveCamera()->getNode();
 			// Prevent the camera from getting too close to the character.
 			// Without this check, it's possible for the camera to fly past the character
 			// and essentially end up in an infinite loop here.
-			if (cameraNode->getTranslationWorld().distanceSquared(focalPoint) <= 2.0f)
+			if (cameraNode->getTranslationWorld().distanceSquared(focalPoint) <= 2.0f) {
 				return;
+			}
 
 			cameraNode->translateForward(0.1f);
 			cameraOffset += 0.1f;
@@ -215,7 +274,7 @@ void BattleBots::adjustCamera(float elapsedTime)
 	// If the character is closer than 10 world units to the camera, apply transparency to the character so he does not obstruct the view.
 	if (occlusion)
 	{
-		float d = _scene->getActiveCamera()->getNode()->getTranslationWorld().distance(_characterNode->getTranslationWorld());
+		float d = _scene->getActiveCamera()->getNode()->getTranslationWorld().distance(_characterScaleNode->getTranslationWorld());
 		float alpha = d < 10 ? (d * 0.1f) : 1.0f;
 		//_characterMeshNode->setTag("transparent", alpha < 1.0f ? "true" : NULL);
 		//_materialParameterAlpha->setValue(alpha);
@@ -223,19 +282,20 @@ void BattleBots::adjustCamera(float elapsedTime)
 	else
 	{
 		//_characterMeshNode->setTag("transparent", NULL);
-	   // _materialParameterAlpha->setValue(1.0f);
+		// _materialParameterAlpha->setValue(1.0f);
 	}
 }
 
 void BattleBots::render(float elapsedTime)
 {
 	// Clear the color and depth buffers
-	clear(CLEAR_COLOR_DEPTH, Vector4::zero(), 1.0f, 0);
+	//clear(CLEAR_COLOR_DEPTH, Vector4::zero(), 1.0f, 0);
+	clear(Game::CLEAR_COLOR_DEPTH, 0, 0, 0, 1, 1, 0);
 
 	// Visit all the nodes in the scene for drawing
 	_scene->visit(this, &BattleBots::drawScene);
 
-	getPhysicsController()->drawDebug(_scene->getActiveCamera()->getViewProjectionMatrix());
+	//getPhysicsController()->drawDebug(_scene->getActiveCamera()->getViewProjectionMatrix());
 
 	_font->start();
 
@@ -252,17 +312,18 @@ void BattleBots::render(float elapsedTime)
 bool BattleBots::drawScene(Node* node)
 {
 	// If the node visited contains a model, draw it
-	Model* model = node->getModel(); 
-	if (model)
-	{
-		model->draw();
+	if (node->getModel()) {
+		node->getModel()->draw();
+	} else if (node->getTerrain()) {
+		node->getTerrain()->draw(false);
 	}
+
 	return true;
 }
 
 void BattleBots::keyEvent(Keyboard::KeyEvent evt, int key)
 {
-   if (evt == Keyboard::KEY_PRESS)
+	if (evt == Keyboard::KEY_PRESS)
 	{
 		switch (key)
 		{
@@ -332,6 +393,66 @@ void BattleBots::keyEvent(Keyboard::KeyEvent evt, int key)
 
 void BattleBots::touchEvent(Touch::TouchEvent evt, int x, int y, unsigned int contactIndex)
 {
+	/*
+	if (evt == Touch::TOUCH_PRESS)
+	{
+	// If the FPS region is touched, toggle vsync (if platform supports it)
+	if (x >= 65 && x < 300 && y >= 18 && y <= 48)
+	{
+	vsync = !vsync;
+	setVsync(vsync);
+	} else if (mode != MODE_LOOK) {
+	// Ray test
+	Ray pickRay;
+	_scene->getActiveCamera()->pickRay(Rectangle (0, 0, getWidth(), getHeight()), x, y, &pickRay);
+
+	PhysicsController::HitResult hitResult;
+	TerrainHitFilter hitFilter(_terrain);
+	if (Game::getInstance()->getPhysicsController()->rayTest(pickRay, 1000000, &hitResult, &hitFilter) && hitResult.object == _terrain->getNode()->getCollisionObject())
+	{
+	Node* clone = NULL;
+	PhysicsCollisionShape::Definition rbShape;
+	const char* material = NULL;
+
+	switch (mode)
+	{
+	case MODE_DROP_SPHERE:
+	{
+	//clone = _sphere->clone();
+	//rbShape = PhysicsCollisionShape::sphere();
+	//material = "res/common/terrain/shapes.material#sphere";
+	}
+	break;
+
+	case MODE_DROP_BOX:
+	{
+	//clone = _box->clone();
+	//rbShape = PhysicsCollisionShape::box();
+	//material = "res/common/terrain/shapes.material#box";
+	}
+	break;
+	}
+
+	if (clone)
+	{
+	clone->setScale(10,10,10);
+	clone->setTranslation(hitResult.point.x, hitResult.point.y + 50, hitResult.point.z);
+	PhysicsRigidBody::Parameters rbParams(1);
+	clone->setCollisionObject(PhysicsCollisionObject::RIGID_BODY, rbShape, &rbParams);
+	_scene->addNode(clone);
+	clone->getModel()->setMaterial(material);
+	clone->release();
+
+	shapes.push_back(clone);
+
+	mode = MODE_LOOK;
+	//setMessage(NULL);
+	}
+	}
+	}
+	}
+	*/
+
 	// This should only be called if the gamepad did not handle the touch event.
 	switch (evt)
 	{
@@ -358,32 +479,25 @@ void BattleBots::touchEvent(Touch::TouchEvent evt, int x, int y, unsigned int co
 			_pitch = _pitch + -MATH_DEG_TO_RAD(deltaY * 0.5f);
 			_yaw = _yaw + MATH_DEG_TO_RAD(deltaX * 0.5f);
 
-			/*
-			char buffer[100];
 
-			sprintf(buffer, "deltaY:%d deltaX:%d\nPitch:%f Yaw:%f\n", deltaY, deltaX, _pitch, _yaw);
-
-			Logger::log(Logger::Level::LEVEL_WARN, buffer);
-			*/
-
+			Node* camera = _scene->getActiveCamera()->getNode();
 			// Keep camera level
-			_cameraPivot->setRotation(0,0,0,1);
-
+			camera->setRotation(0,0,0,1);
 			// Apply rotation
-			_cameraPivot->rotateY(-_yaw);
-			_cameraPivot->rotateX(_pitch);
-
+			camera->rotateY(-_yaw);
+			camera->rotateX(_pitch);
 		}
 		break;
 	default:
 		break;
 	}
+
 }
 
 void BattleBots::gestureSwipeEvent(int x, int y, int direction) {
 
 }
-   
+
 void BattleBots::gesturePinchEvent(int x, int y, float scale) {
 
 }

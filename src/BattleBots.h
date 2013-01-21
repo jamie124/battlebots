@@ -57,6 +57,13 @@ protected:
 
 private:
 
+    enum Mode
+    {
+        MODE_LOOK,
+        MODE_DROP_SPHERE,
+        MODE_DROP_BOX
+    };
+
 	/**
 	 * Draws the scene each frame.
 	 */
@@ -72,11 +79,16 @@ private:
 
 	Scene* _scene;
 
-	PhysicsCharacter* _character;
+
+	PhysicsCharacter* _characterPhysics;
 	Node* _characterNode;
+	Node* _characterScaleNode;
 	Node* _characterMeshNode;
 	
 	Node* _cameraPivot;
+
+	Terrain* _terrain;
+	Node* _sky;
 
 	float _floorLevel;
 
@@ -87,6 +99,13 @@ private:
 	unsigned int _keyFlags;
 
 	Vector2 _currentDirection;
+
+	bool snapToGround;
+	bool vsync;
+
+	Mode mode;
+
+	std::list<Node*> shapes;
 
 	char fps[32];
 	char cameraPos[32];
